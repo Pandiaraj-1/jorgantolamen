@@ -1,0 +1,217 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+    /* margin: auto ;
+    height: auto; */
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    /* background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);    */
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+li,a{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.logo{
+    width: 95px;
+    cursor: pointer;
+    /* filter: drop-shadow(10,10,10 white); */
+}
+img{
+    filter: drop-shadow(10,10,10 white);
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10px;
+    background: #3a47d5;
+}
+nav{
+    list-style: none;
+}
+nav li{
+    display: inline-block;
+    padding: 0px 20px;
+    margin-right: 40px;
+}
+nav li a{
+    transition : all .3s ease-out;
+}
+nav li a:hover{
+color: #00d9ff;
+}
+.container{
+    display: absolute;
+    align-items: center; 
+    justify-content: center;
+    background: rgb(240, 240, 240);
+    max-width: 700px;
+    min-width: 500px;
+    text-align: center; 
+    min-height: 400px;
+    height: 500px;
+    margin-top: 200px;
+    border-radius: 35px;
+    margin-top: 110px;
+    border: 5px ,5px,10px;
+    border-color: gray;
+    margin-left: 650px;
+    margin-top: 80px;
+}
+.container h1{
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 20px;
+    padding-top: 25px;
+}
+.label{
+    font-size: 20px;
+    margin-top: 90px;
+    
+}
+.search_bar{
+    display: flex;
+    flex-direction: column;
+}
+ input {
+    width: 400px;
+    height: 50px;
+    border-radius: 30px;
+    border-color: blanchedalmond;
+    margin-left: 60px;
+    margin-top: 55px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 20px;
+    margin-left: 100px;
+
+}
+input:hover{
+    background: rgb(245, 244, 242);
+    border-color: gray;
+    transition: .4s;
+}
+
+.listen_btn{
+    height: 50px;
+    width: 100px;
+    border-radius: 30px;
+    border-color: blanchedalmond;
+    margin-left: 5px;
+    margin-top: 52px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.listen_btn .mic{
+    font-size: 30px;
+}
+.listen_btn:hover{
+    background: rgb(245, 244, 242);
+    transition: 0.4s;
+    border-color: gray;
+}
+.search_bar button{
+    color:rgb(255, 255, 255);
+    max-width: 150px;
+    width: 120px;
+    height:35px ;
+    margin: 10px;
+    justify-content: space-evenly;
+    margin-left: 190px;
+    font-size: 17px;
+    font-weight: 550;
+    border-radius: 20px;
+    background:  rgba(238,174,202,1);
+    border: 1px white;
+}
+.search_bar .mic button{
+    margin-right: 200px;
+}
+.search_bar .mic p{
+    font-size: 20px;
+    margin-top: 10px;
+}
+.result{
+    max-width: 300px;
+    max-height: 50px;
+    border-color: blanchedalmond;
+    text-align: center;
+    font-size: 30px;
+    margin-left: 210px;
+    padding-top:30px ;
+}
+.speak-btn{
+    background: rgb(57, 231, 217);
+    max-width: 200px;
+    width: 200px;
+    height:40px ;
+    margin: 10px;
+    border: 1px white;
+    border-radius: 20px;
+    color: white;
+    margin-top: 20px;
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    transition: .3s;
+}
+.speak-btn .speak_icon{
+    font-size: 20px;
+    font-weight: 600;
+    
+}
+
+.speak-btn:hover{
+    background-color: rgb(81, 121, 230);
+    border: black 2px;
+    width: 200px;
+    height:40px ;
+    border-radius: 10px;
+    transition: .3s;
+}
+.convert_btn{
+    background:  rgb(57, 231, 217);
+    max-width: 150px;
+    width: 150px;
+    height:40px ;
+    margin: 10px;
+    border: 1px white;
+    border-radius: 20px;
+    color: white; 
+    font-size: 17px; 
+    font-weight: 600; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: .3s;
+}
+.convert_btn:hover{
+    background-color: rgb(81, 121, 230);
+    border: black 2px;
+    width: 150px;
+    height:40px ;
+    border-radius: 10px;
+    transition: .3s;
+}
+footer{
+    justify-content: last baseline;
+    align-items:last baseline;
+    background-color: black;
+    color: white;
+    margin-top: auto;
+    text-align: center;
+    position: relative;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0.7;
+    margin-top: 210px;
+    height: 20px;
+}

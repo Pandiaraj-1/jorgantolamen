@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Tech Crafter" class="logo">
+        <nav>
+            <ul class="menu">
+                <li>
+                    <a href='/'>HOME</a>
+                </li>
+                <li>
+                    <a href="/report">REPORT CHECK</a>
+                </li>
+                <li>
+                    <a href="#">ABOUT</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Medical Term Converter</h1>
+        <div class="form-group">
+            <label for="medical-term" class="label">Enter Medical  Jargon Term </label>
+            <div style="display: flex;">
+                <input type="text" id="medical-term" placeholder="Enter medical term. . . " ></input>
+                <!-- Separate widget for speech-to-text -->
+                <div class="speech-to-text-widget" style="margin-left: 10px;">
+                    <button id="start-listening-btn" class="listen_btn">
+                        <ion-icon name="mic" class="mic"></ion-icon>                    
+                            </button>
+                    <div id="transcription"></div>
+                </div>
+            </div>
+            <button id="convert-btn" class="convert_btn">CONVERT</button>
+        </div>
+        <div class="result" id="result"></div>
+        <div class="result-speak">
+            <button id="speak-btn"  class="speak-btn">SPEAK 
+                <ion-icon  class="speak_icon" name="volume-high"></ion-icon>
+            </button>
+        </div>
+    </div>
+<footer class="footer">
+ <p>PROJECT MADE BY TECH CRAFTER</p>
+</footer>
+
+    <script>
+        // JavaScript code for speech-to-text functionality
+        const speechToTextWidget = document.querySelector('.speech-to-text-widget');
+        const startListeningBtn = speechToTextWidget.querySelector('#start-listening-btn');
+        const transcriptionDiv = speechToTextWidget.querySelector('#transcription');
+        const medicalTermInput = document.getElementById('medical-term');
+        const convertBtn = document.getElementById('convert-btn');
+        const resultDiv = document.getElementById('result');
+        const speakBtn = document.getElementById('speak-btn');
+
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+        recognition.lang = 'en-US';
+
+        recognition.onresult = function(event) {
+            const last = event.results.length - 1;
+            const transcription = event.results[last][0].transcript;
+            populateInput(transcription);
+            transcriptionDiv.textContent = transcription;
+        };
+
+        recognition.onerror = function(event) {
+            console.error('Speech recognition error detected: ' + event.error);
+        };
+
+        startListeningBtn.addEventListener('click', function() {
+            recognition.start();
+            transcriptionDiv.textContent = 'Listening...';
+        });
+
+        // Function to populate input field with recognized speech
+        function populateInput(text) {
+            medicalTermInput.value = text;
+        }
+
+        // Convert button click event
+        convertBtn.addEventListener('click', function() {
+            const medicalTerm = medicalTermInput.value.trim();
+            // Perform your conversion process here
+            // For demonstration purpose, let's display the converted result
+            const convertedResult = "Converted result for: " + medicalTerm;
+            resultDiv.textContent = convertedResult;
+            speak(convertedResult); // Speak the converted result
+        });
+
+        // Speak button click event
+        speakBtn.addEventListener('click', function() {
+            const textToSpeak = resultDiv.textContent;
+            speak(textToSpeak);
+        });
+
+        // Function to speak given text
+        function speak(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            speechSynthesis.speak(utterance);
+        }
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+
+
+</body>
+</html>
